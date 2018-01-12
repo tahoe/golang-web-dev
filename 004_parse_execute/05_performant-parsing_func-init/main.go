@@ -20,25 +20,31 @@ func init() {
 	// which is exactly what most of the parsing methods return
 	// this would be a good place (the Must method) to do auto error codes and whatnot
 	// 
+	// now any files in the subfolder templates will be in the tpl object
 	tpl = template.Must(template.ParseGlob("templates/*"))
 }
 
 func main() {
+	// here we take the template object and call Execute which will execute
+	// the first template it runs into
 	err := tpl.Execute(os.Stdout, nil)
 	if err != nil {
 		log.Fatalln(err)
 	}
 
+	// ExecuteTemplate: explicit template execution
 	err = tpl.ExecuteTemplate(os.Stdout, "vespa.gohtml", nil)
 	if err != nil {
 		log.Fatalln(err)
 	}
 
+	// ExecuteTemplate: explicit template execution
 	err = tpl.ExecuteTemplate(os.Stdout, "two.gohtml", nil)
 	if err != nil {
 		log.Fatalln(err)
 	}
 
+	// ExecuteTemplate: explicit template execution
 	err = tpl.ExecuteTemplate(os.Stdout, "one.gohtml", nil)
 	if err != nil {
 		log.Fatalln(err)
