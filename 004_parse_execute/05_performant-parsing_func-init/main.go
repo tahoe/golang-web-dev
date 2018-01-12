@@ -6,8 +6,8 @@ import (
 	"text/template"
 )
 
-// creates a pointer to the template object, basically creating an empty object that
-// has all the methods but no data yet.
+// creates a pointer to the Template "Type", basically just a container
+// for Template type things and methods of course to manipulate them
 var tpl *template.Template
 
 // func init() seems to be a standard function that gets auto run just like main
